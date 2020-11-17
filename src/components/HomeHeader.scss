@@ -1,34 +1,78 @@
-@import '../scss/main.scss';
+@import "../scss/main.scss";
 
 .header-container {
+  display: flex;
+  position: relative;
+  color: $ColorFive;
+  justify-content: flex-end;
+  height: 700px;
+  white-space: pre-wrap;
+
+  background-color: white;
+  img {
+    position: absolute;
+    width: 1000px;
+    height: 800px;
+    top: -100px;
+    left: -400px;
+  }
+  #start {
+    width: 50%;
+    margin-right: 10%;
+    height: 800px;
     display: flex;
-    position: relative;
-    justify-content: flex-end;
-    height: 700px;
-    background-color: white;
-    img {
-        position: absolute;
-        width: 1000px;
-        height: 800px;
-        top: -100px;
-        left: -400px;
-        
+    flex-direction: column;
 
-
+    .header-login {
+      justify-content: center;
+      align-items: center;
+      height: 100px;
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      .link-item {
+        color: inherit;
+        font-size: 0.8rem;
+        text-decoration: inherit;
+        margin: 2rem 4rem;
+      }
+      .link-reg {
+        padding: 0.8rem 1.7rem;
+        border: 1px solid $ColorThree;
+        margin-right: 7rem;
+      }
     }
-    #start {
-        position: relative;
-        width:60%;
-        display: flex;
-        
-        align-items: flex-end;
-        div {
-            justify-content: center;
-            align-items: center;
-            height: 40px;
-            width: 30%;
-        }
-
-
-    }
+  }
+}
+.header-title {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  h1 {
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+}
+.header-btn-container {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 200px;
+  .big-link-item {
+    font-size: 1.7rem;
+    text-align: center;
+    width: 7.4rem;
+    height: 3.5rem;
+    padding: 2rem;
+    margin: 0.5rem;
+    border: 1px solid $ColorFive;
+    color: inherit;
+    text-decoration: inherit;
+  }
 }

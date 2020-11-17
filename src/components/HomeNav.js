@@ -1,4 +1,6 @@
 import React from 'react';
+import './HomeNav.scss';
+import styled from 'styled-components';
 import {Link} from 'react-scroll'
 
 
