@@ -1,0 +1,13 @@
+@import '../scss/main.scss';
+
+nav {
+    margin: 20px 30px; 
+    width: 400px;
+    height: 40px;
+    ul {
+        list-style: none;
+        li {
+            display: inline;
+        }
+    }
+}
