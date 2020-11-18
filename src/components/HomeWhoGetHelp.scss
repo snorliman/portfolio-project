@@ -1,0 +1,92 @@
+@import "../scss/main.scss";
+
+#who-get-help {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .who-get-header {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+    height: 30%;
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1.7rem;
+    }
+    .decor {
+      margin-bottom: 3rem;
+    }
+    .btn-container {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 2rem;
+      .active {
+        border: 1px solid $ColorFive;
+        border-radius: none;
+      }
+
+      button {
+        font-size: 1.2rem;
+        background-color: white;
+        outline: none;
+        border: none;
+        padding: 1.5rem 2rem;
+      }
+    }
+  }
+}
+.organization-container {
+  display: flex;
+  height: 50%;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  .description {
+    margin-bottom: 2rem;
+    word-spacing: 2px;
+    line-height: 2rem;
+    width: 30%;
+    text-align: center;
+  }
+  .organization-list {
+    height: 100%;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    .organization {
+      display: flex;
+      font-family: $font-alt;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      span {
+        font-size: 1.2rem;
+        padding: 2rem;
+      }
+      p {
+        font-size: 0.8rem;
+      }
+    }
+    .custom-line {
+      width: 100%;
+      display: block;
+      height: 1px;
+      background-color: $ColorFive;
+    }
+  }
+}
+.btn {
+  background-color: white;
+  outline: none;
+  font-size: 1rem;
+
+  border: 1px solid $ColorFive;
+  margin: 0.1rem;
+  padding: 0.8rem 0.6rem;
+}
