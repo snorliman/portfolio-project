@@ -7,12 +7,11 @@ import HomeNav from './HomeNav';
 import styled from 'styled-components';
 
 export default function HomeHeader() {
-    const text = "Zacznij pomagać! \n Oddaj niechciane rzeczy w zaufane ręce"
-    const text2 = "ODDAJ \n RZECZY";
-    const text3 = "ZRÓB \n ZBIÓRKĘ";
-    let newText = text.split('\n').map(i => {
-        return <p>{i}</p>
-    });
+    const text = `Zacznij pomagać!
+     Oddaj niechciane rzeczy w zaufane ręce`
+    const text2 = `ODDAJ RZECZY`;
+    const text3 = `ZRÓB ZBIÓRKĘ`;
+    
     return (
         <div className="header-container">
             <img src={HomeHero}></img>

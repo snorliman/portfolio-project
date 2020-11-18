@@ -1,0 +1,69 @@
+@import "../scss/main.scss";
+
+.info-section {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  height: 85vh;
+  .info-header {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    h2 {
+      margin-bottom: 1rem;
+    }
+  }
+  .info-btn {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .big-link-item {
+      font-size: 1.7rem;
+      text-align: center;
+      width: 7.4rem;
+      height: 3.5rem;
+      padding: 2rem;
+      margin: 0.5rem;
+      border: 1px solid $ColorFive;
+      color: inherit;
+      text-decoration: inherit;
+    }
+  }
+}
+
+.home-info-contener {
+  height: 400px;
+  width: 100%;
+  background-color: $ColorOne;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .home-info-item {
+    width: 20%;
+    text-align: center;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .custom-line {
+      height: 1px;
+      width: 40px;
+      margin: 0.8rem;
+      background-color: $ColorFour;
+      border: none;
+    }
+    p {
+      font-size: 0.8rem;
+    }
+    img {
+      margin-bottom: 0.5rem;
+    }
+  }
+}
