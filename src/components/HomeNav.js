@@ -9,8 +9,8 @@ export default function HomeNav() {
         <nav>
           <ul>
             <li><Link to ="start">Start</Link></li>
-            <li><Link to ="start">O co chodzi?</Link></li>
-            <li><Link to ="start">O nas</Link></li>
+            <li><Link to ="what-is-about">O co chodzi?</Link></li>
+            <li><Link to ="about-us">O nas</Link></li>
             <li><Link to ="start">Fundacje i organizacje</Link></li>
             <li><Link to ="start">Kontakt</Link></li>
           </ul>

@@ -9,7 +9,7 @@ import {ReactComponent as Decoration} from '../assets/Decoration.svg';
 
 export default function HomeInfoSection(){
     return (
-        <section className="info-section">
+        <section id="what-is-about"className="info-section">
             <div className="info-header">
               <h2>Wystarczą 4 proste kroki</h2>
             <Decoration/>  
