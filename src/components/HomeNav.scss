@@ -6,13 +6,18 @@ nav {
   display: flex;
   justify-content: flex-end;
   ul {
+    display: flex;
+    justify-content: flex-end;
     list-style: none;
     font-size: 1rem;
-    margin-right: 7rem;
     margin-top: 40px;
     li {
       display: inline;
       padding-left: 4rem;
+      cursor: pointer;
+      :hover {
+        color: $ColorThree;
+      }
     }
   }
 }
