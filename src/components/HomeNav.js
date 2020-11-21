@@ -6,13 +6,13 @@ import {Link} from 'react-scroll'
 
 export default function HomeNav() {
     return (
-        <nav>
+        <nav className="nav-header">
           <ul>
             <li><Link to ="start">Start</Link></li>
             <li><Link to ="what-is-about">O co chodzi?</Link></li>
             <li><Link to ="about-us">O nas</Link></li>
             <li><Link to ="who-get-help">Fundacje i organizacje</Link></li>
-            <li><Link to ="start">Kontakt</Link></li>
+            <li><Link to ="contact-us">Kontakt</Link></li>
           </ul>
         </nav>
     )
