@@ -1,18 +1,17 @@
 import React from "react";
 import Pagination from "./Pagination";
-import {fundationData} from '../utiltis/organizationData';
 
 
-export default function Fundation({posts,postsPerPage,paginate }) {
-  
+export default function Fundation({posts, postData,postsPerPage, paginate }) {
+  console.log(postsPerPage, postData.length)
     return (
         <>
         <div className="organization-container">
-        <p className="description">W naszej bazie znajdziesz listę zweryfikowanych Fundacji, 
+        <p className="description">W naszej bazie znajdziesz listę zweryfikowanych Fundacji, organizacji i Zbiórek, 
         z którymi współpracujemy. Możesz sprawdzić czym się zajmują, 
         komu pomagają i czego potrzebują.</p>
         <div className="organization-list">
-        {(posts.map((organization) => (
+        {posts.map((organization) => (
                 <div key={organization.name}>
                 <div className="organization">
                     <div className="organization-item">
@@ -23,10 +22,10 @@ export default function Fundation({posts,postsPerPage,paginate }) {
                 </div>
                 <div className="custom-line"></div>
                 </div>
-            )))}
+            ))}
         </div>
         </div>   
-        <Pagination postsPerPage={postsPerPage} postTotal={fundationData.length}   paginate={paginate} />
+        <Pagination postsPerPage={postsPerPage} totalPosts={postData.length}   paginate={paginate} />
         </>
     )
 }

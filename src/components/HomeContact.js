@@ -18,22 +18,24 @@ export default function HomeContact() {
 
     const submitHandler = (e) => {
         e.preventDefault();
-        
+
+    setErrorEmail(false);
+    setErrorMessage(false);
+    setErrorName(false);  
+
         const userData = {
         name,
         email,
         message,
     };
-    setErrorEmail(false);
-    setErrorMessage(false);
-    setErrorName(false);
+    
         
     const validateEmail = (mail) => {
             const re = /\S+@\S+\.\S+/;
             return re.test(mail);
     }
-    const hasWhiteSpace = (nam) => {
-        return /\s/.test(nam);
+    const haveSpace = (nam) => {
+            return /\s/.test(nam);
     }     
     const goodNumberOfSigh = (mess) => {
         if((mess.length - 1) > 120) {
@@ -45,14 +47,17 @@ export default function HomeContact() {
     const validation = (mail, nam, mess) => {
     
         if (!validateEmail(mail)) {
-            return setErrorEmail(true)
-        }if (hasWhiteSpace(nam)) {
-            return setErrorName(true);
+            setErrorEmail(true)
+        }if (haveSpace(nam)) {
+            setErrorName(true);
         }if (!goodNumberOfSigh(mess)) {
-            return setErrorMessage(true);
+            setErrorMessage(true);
         }
-        if((errorMessage&&errorName&&errorEmail) === false) {
-             return fetch('https://fer-api.coderslab.pl/v1/portfolio/contact', {
+        if((errorMessage||errorName||errorEmail) === true) {
+             return null;
+        }
+        else {
+            return (fetch('https://fer-api.coderslab.pl/v1/portfolio/contact', {
                 method: "POST",
                 body: JSON.stringify(userData),
                 headers: {
@@ -60,10 +65,9 @@ export default function HomeContact() {
                 }
             })
             .then((res) => console.log(res))
-            .catch((err) => console.error(err))
-        }
-        else return;
-    }
+            .catch((err) => console.error(err)));
+        } ;
+    };
     validation(email, name, message);          
     };
     

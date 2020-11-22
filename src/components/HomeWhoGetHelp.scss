@@ -101,11 +101,13 @@
   text-decoration: none;
 }
 
-nav {
+.paginate {
   display: flex;
+  height: 10vh;
+  margin-top: 20px;
   justify-content: center;
   align-items: center;
-  ul {
+  .paginate-list {
     display: flex;
     justify-content: center;
     align-items: center;

@@ -1,8 +1,6 @@
 import React from 'react';
 import "./HomeWhoGetHelp.scss";
-import Charrity from './Charrity';
 import Fundation from "./Fundation";
-import Organization from "./Organization";
 import {useState} from 'react';
 import {ReactComponent as Decoration} from '../assets/Decoration.svg';
 import {charrityData} from "../utiltis/organizationData";
@@ -27,7 +25,10 @@ export default function HomeWhoGetHelp() {
     const currentPost = posts.slice(indexOffFirstPost, indexOffLastPost);
 
     
-    const paginate = (pageNum) => setCurrentPage(pageNum)
+    const paginate = (pageNum) => {
+        setCurrentPage(pageNum)
+        setPostsPerPage(3);
+    }
 
     const fundationButtonHandler = () => {
         setActive("fundation")
@@ -54,9 +55,9 @@ export default function HomeWhoGetHelp() {
                     <button onClick={charrityButtonHandler}className={active === "charrity" ? "active" : "" }>Lokalnym zbiórkom</button>
                 </div>
             </div>
-            {active === "fundation" && <Fundation fundationData={fundationData} posts={currentPost}/>}
-            {active === "organization" && <Organization organizationData={organizationData} posts={currentPost} />}
-            {active === "charrity" && <Charrity charrityData={charrityData} posts={currentPost}/>}
+            {active === "fundation" && <Fundation postData={fundationData} posts={currentPost} postsPerPage={postsPerPage} paginate={paginate}/>}
+            {active === "organization" && <Fundation postData={organizationData} posts={currentPost} postsPerPage={postsPerPage} paginate={paginate} />}
+            {active === "charrity" && <Fundation postData={charrityData} posts={currentPost} postsPerPage={postsPerPage} paginate={paginate}/>}
     
         </section>
     );

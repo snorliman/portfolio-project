@@ -1,11 +1,16 @@
 import React from 'react';
-import './HomeNav.scss';
-import styled from 'styled-components';
+import './Nav.scss';
+import {Link as LinkRoute} from 'react-router-dom';
 import {Link} from 'react-scroll'
 
 
-export default function HomeNav() {
+export default function Nav() {
     return (
+    <>    
+      <div className="header-login">
+      <LinkRoute className="link-item" to='/login'>Zaloguj</LinkRoute>
+      <LinkRoute className='link-item link-reg' to='/registration'>Załóż konto</LinkRoute>
+      </div>
         <nav className="nav-header">
           <ul>
             <li><Link to ="start">Start</Link></li>
@@ -15,5 +20,6 @@ export default function HomeNav() {
             <li><Link to ="contact-us">Kontakt</Link></li>
           </ul>
         </nav>
+    </>
     )
 }

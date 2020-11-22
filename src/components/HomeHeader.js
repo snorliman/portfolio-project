@@ -3,8 +3,7 @@ import {Link} from 'react-router-dom';
 import './HomeHeader.scss'
 import HomeHero from "../assets/Home-Hero-Image.jpg";
 import {ReactComponent as Decoration} from '../assets/Decoration.svg';
-import HomeNav from './HomeNav';
-import styled from 'styled-components';
+import Nav from './Nav';
 
 export default function HomeHeader() {
     const text = `Zacznij pomagać!
@@ -16,12 +15,7 @@ export default function HomeHeader() {
         <div className="header-container">
             <img src={HomeHero}></img>
             <div id ="start">
-                <div className="header-login">
-                <Link className="link-item" to='/login'>Zaloguj</Link>
-                <Link className='link-item link-reg' to='/registration'>Załóż konto</Link>
-                </div>
-                <HomeNav/>
-            
+                <Nav/>
                 <div className="header-title">
                      <h1>{text}</h1>
                      <Decoration/>

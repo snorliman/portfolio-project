@@ -67,7 +67,7 @@ export const organizationData =  [
                     collect: "ubrania, jedzenie, meble, AGD"
                 },
                 {
-                    name: "Organizacja Wspieraj Ekologi",
+                    name: "Organizacja Zielona Ekologia",
                     description: "Organizacja pomaga walczyś o środowisko",
                     collect: "ubrania, jedzenie, meble, AGD"
                 },
@@ -77,7 +77,7 @@ export const organizationData =  [
                     collect: "ubrania, jedzenie, meble, AGD"
                 },
                 {
-                    name: "Organizacja Wspieraj Ekologi",
+                    name: "Organizacja POMOC TERAZ",
                     description: "Organizacja pomaga walczyś o środowisko",
                     collect: "ubrania, jedzenie, meble, AGD"
                 },
