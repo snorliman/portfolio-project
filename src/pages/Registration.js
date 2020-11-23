@@ -1,7 +1,58 @@
-import React from 'react';
+import React from "react";
+import Nav from "../components/Nav";
+import {Link} from "react-router-dom";
+import {useState} from "react";
+import "./Registration.scss";
+import "./Login.scss";
+import {ReactComponent as Decoration} from "../assets/Decoration.svg";
+
 
 export default function Registration() {
+
+    const [mailErrorLog, setMailErrorLog] = useState(false);
+    const [passwordErrorLog, setPasswordErrorLog] = useState(false);
+    const [mail, setMail] = useState('');
+    const [password, setPassword] = useState('')
+
+    const submitHandler = (e) => {
+        e.preventDefault()
+    }
+
     return (
-        <div>Registration</div>
+        <div className="reg">
+            <div className="nav-holder">
+               <Nav/> 
+            </div>
+            
+            <div className="reg-container">
+                <form onSubmit={submitHandler} className="reg-item">
+                    <h2>Załóż konto</h2>
+                    <Decoration className="decoration"/>
+                    <div className="reg-form" >
+                        <label>Email</label>
+                            <input id={mailErrorLog&&"error-line"} className="reg-input" value={mail} onChange={(e)=> setMail(e.target.value)} type='email'></input>
+                            {mailErrorLog && <p className="error-text-log">Podany email jest nieprawidłowy!</p>}
+                        
+                        <label>Hasło</label>
+                        <div className="input-holder">
+                            <input id={passwordErrorLog&&"error-line"} className="reg-input" value={password} onChange={(e)=> setPassword(e.target.value)} type='password'></input>
+                            {passwordErrorLog && <p className="error-text-log">Podane hasło jest za krótkie!</p>}
+                        </div>
+                            
+                        
+                        <label>Powtórz hasło</label> 
+                        <div className="input-holder">
+                            <input id={passwordErrorLog&&"error-line"} className="reg-input" value={password} onChange={(e)=> setPassword(e.target.value)} type='password'></input>
+                            {passwordErrorLog && <p className="error-text-log">Podane hasło jest za krótkie!</p>}
+                        </div>
+                        
+                    </div>
+                    <div className="reg-btn-contanier">
+                        <Link className="reg-btn reg-login" to="/login">Zaloguj się</Link>
+                        <button type="submit" className="reg-btn">Załóż konto</button>    
+                    </div>   
+                </form>  
+            </div> 
+        </div>
     )
-}
+} 

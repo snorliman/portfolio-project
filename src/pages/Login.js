@@ -14,9 +14,11 @@ export default function Login() {
     const [password, setPassword] = useState('')
 
     const submitHandler = (e) => {
-        e.preventDefault();
+        
         setMailErrorLog(false);
         setPasswordErrorLog(false);
+        
+        e.preventDefault();
 
         const validateEmail = (mail) => {
             const re = /\S+@\S+\.\S+/;
@@ -29,20 +31,22 @@ export default function Login() {
             return false;
         } 
        }
-    const validation = (mail, password) => {
-        if (validateEmail) {
+    const validationLog = (mail, password) => {
+        if (!validateEmail(mail)) {
             setMailErrorLog(true);
         }
-        if(validatePassword) {
+        if(!validatePassword(password)) {
             setPasswordErrorLog(true);
         }
         if(mailErrorLog||passwordErrorLog) {
             return;
         } else {
-            console.log("UDAŁO SIĘ")
+            console.log("UDAŁO SIĘ");
+            
         }
-        validation(mail, password)
-    }   
+        
+    }; 
+    validationLog(mail, password)  
 
     }
 
@@ -53,22 +57,29 @@ export default function Login() {
             </div>
             
             <div className="login-container">
-                <div className="login-item">
+                <form onSubmit={submitHandler} className="login-item">
                     <h2>Zaloguj się</h2>
                     <Decoration/>
-                    <form className="login-form" onSubmit={submitHandler}>
+                    <div className="login-form" >
                         <label>Email</label>
-                            <input className="login-input" value={mail} onChange={(e)=> setMail(e.target.value)} type='email'></input>
-                        
+                        <div className="input-holder">
+                            <input id={mailErrorLog&&"error-line"} className="login-input" value={mail} onChange={(e)=> setMail(e.target.value)} type='email'></input>
+                            {mailErrorLog && <p className="error-text-log">Podany email jest nieprawidłowy!</p>}
+                        </div>
                         <label>Hasło</label>
-                            <input className="login-input" value={password} onChange={(e)=> setPassword(e.target.value)} type='password'></input>
+                            <div className="input-holder">
+                                <input id={passwordErrorLog&&"error-line"} className="login-input" value={password} onChange={(e)=> setPassword(e.target.value)} type='password'></input>
+                                {passwordErrorLog && <p className="error-text-log">Podane hasło jest za krótkie!</p>}    
+                            </div>
+                            
+                            
                         
-                    </form>
+                    </div>
                     <div className="login-btn-contanier">
                         <Link className="login-btn login-registry" to="/registration">Załóż konto</Link>
                         <button type="submit" className="login-btn">Zaloguj się</button>    
                     </div>   
-                </div>  
+                </form>  
             </div> 
         </div>
     )

@@ -17,11 +17,12 @@ export default function HomeContact() {
 
 
     const submitHandler = (e) => {
-        e.preventDefault();
+        
 
     setErrorEmail(false);
     setErrorMessage(false);
-    setErrorName(false);  
+    setErrorName(false); 
+    e.preventDefault(); 
 
         const userData = {
         name,
@@ -53,8 +54,8 @@ export default function HomeContact() {
         }if (!goodNumberOfSigh(mess)) {
             setErrorMessage(true);
         }
-        if((errorMessage||errorName||errorEmail) === true) {
-             return null;
+        if((errorMessage||errorName||errorEmail)) {
+             return;
         }
         else {
             return (fetch('https://fer-api.coderslab.pl/v1/portfolio/contact', {
@@ -65,7 +66,8 @@ export default function HomeContact() {
                 }
             })
             .then((res) => console.log(res))
-            .catch((err) => console.error(err)));
+            .catch((err) => console.log(err)));
+        ;
         } ;
     };
     validation(email, name, message);          

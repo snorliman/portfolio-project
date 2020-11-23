@@ -1,6 +1,6 @@
 @import "../scss/main.scss";
 
-.login {
+.reg {
   color: $ColorFive;
   height: 100vh;
   display: flex;
@@ -9,13 +9,13 @@
     height: 20vh;
     margin: 20px 80px 0 0;
   }
-  .login-container {
+  .reg-container {
     height: 70vh;
     justify-content: center;
     align-items: center;
     display: flex;
-    .login-item {
-      height: 80%;
+    .reg-item {
+      height: 90%;
       width: 700px;
       display: flex;
       flex-direction: column;
@@ -25,14 +25,18 @@
         font-size: 40px;
         margin-bottom: 10px;
       }
-      .login-form {
+      .decoration {
+        margin-bottom: 20px;
+        margin-top: 10px;
+      }
+      .reg-form {
         display: flex;
         margin-top: 30px;
         width: 440px;
         justify-content: space-evenly;
         flex-direction: column;
         align-items: flex-start;
-        height: 50%;
+        height: 65%;
         background-color: $ColorOne;
         border: none;
         .error-text-log {
@@ -46,17 +50,17 @@
           margin: 0 3rem;
           font-weight: 700;
         }
-        .login-input {
+        .reg-input {
           background: none;
           border: none;
-          height: 20px;
           width: 80%;
+          background: none;
+          height: 40px;
           border-bottom: 1px solid $ColorFive;
           margin: 0 3rem;
 
           &:focus {
             outline: none;
-            background: none;
             border-bottom: 1px solid $ColorThree;
           }
         }
@@ -65,12 +69,12 @@
         border-bottom: 1px solid red;
       }
 
-      .login-btn-contanier {
+      .reg-btn-contanier {
         height: 20%;
         width: 100%;
         display: flex;
         justify-content: space-between;
-        .login-btn {
+        .reg-btn {
           outline: none;
           background: none;
           border: 1px solid $ColorFive;
@@ -84,7 +88,7 @@
             border: 1px solid $ColorThree;
           }
         }
-        .login-registry {
+        .reg-login {
           border: none;
           color: inherit;
           text-decoration: none;

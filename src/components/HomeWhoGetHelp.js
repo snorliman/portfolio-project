@@ -28,19 +28,23 @@ export default function HomeWhoGetHelp() {
     const paginate = (pageNum) => {
         setCurrentPage(pageNum)
         setPostsPerPage(3);
+        
     }
 
     const fundationButtonHandler = () => {
-        setActive("fundation")
-        setPosts([...fundationData])
+        setActive("fundation");
+        setPosts([...fundationData]);
+        setCurrentPage(1);
     }
     const organizationButtonHandler = () => {
-        setActive("organization")
-        setPosts([...organizationData])
+        setActive("organization");
+        setPosts([...organizationData]);
+        setCurrentPage(1);
     }
     const charrityButtonHandler = () => {
-        setActive("charrity")
-        setPosts([...charrityData])
+        setActive("charrity");
+        setPosts([...charrityData]);
+        setCurrentPage(1);
     }
    
     
