@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {useState} from 'react';
 import HomeFooter from './HomeFooter';
 import './HomeContact.scss';
@@ -9,56 +9,46 @@ export default function HomeContact() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
-    const [errorEmail, setErrorEmail] = useState(false);
-    const [errorName, setErrorName] = useState(false);
-    const [errorMessage, setErrorMessage] = useState(false);
+    const [errorEmail, setErrorEmail] = useState(null);
+    const [errorName, setErrorName] = useState(null);
+    const [errorMessage, setErrorMessage] = useState(null);
 
-
-
-
-    const submitHandler = (e) => {
-        
-
-    setErrorEmail(false);
-    setErrorMessage(false);
-    setErrorName(false); 
-    e.preventDefault(); 
-
-        const userData = {
-        name,
-        email,
-        message,
-    };
     
-        
+
     const validateEmail = (mail) => {
-            const re = /\S+@\S+\.\S+/;
-            return re.test(mail);
-    }
-    const haveSpace = (nam) => {
-            return /\s/.test(nam);
-    }     
-    const goodNumberOfSigh = (mess) => {
-        if((mess.length - 1) > 120) {
-            return false;
+        const re = /\S+@\S+\.\S+/;
+        if(re.test(mail)) {
+            setErrorEmail(false);
         } else {
-            return true;
+            setErrorEmail(true);
         }
-    }
-    const validation = (mail, nam, mess) => {
-    
-        if (!validateEmail(mail)) {
-            setErrorEmail(true)
-        }if (haveSpace(nam)) {
+}
+const haveSpace = (nam) => {
+        if (/\s/.test(nam)) {
             setErrorName(true);
-        }if (!goodNumberOfSigh(mess)) {
-            setErrorMessage(true);
+        } else {
+            setErrorName(false);
         }
-        if((errorMessage||errorName||errorEmail)) {
-             return;
-        }
-        else {
-            return (fetch('https://fer-api.coderslab.pl/v1/portfolio/contact', {
+
+}     
+const goodNumberOfSigh = (mess) => {
+    if((mess.length - 1) < 120) {
+        setErrorMessage(false);
+    } else {
+        setErrorMessage(true);
+    }
+}
+    useEffect(() => {
+        const userData = {
+            name,
+            email,
+            message,
+        };
+        if(errorMessage|| errorName || errorEmail)  {
+            console.log("Nie udało się")    
+        ;
+        } else if ((errorMessage|| errorName || errorEmail) === false) {
+            fetch('https://fer-api.coderslab.pl/v1/portfolio/contact', {
                 method: "POST",
                 body: JSON.stringify(userData),
                 headers: {
@@ -66,13 +56,20 @@ export default function HomeContact() {
                 }
             })
             .then((res) => console.log(res))
-            .catch((err) => console.log(err)));
-        ;
-        } ;
-    };
-    validation(email, name, message);          
-    };
-    
+            .catch((err) => console.log(err));
+                } else {
+                    return null;
+                }
+    }, [errorEmail, errorMessage, errorName]);
+
+    const submitHandler = (e) => {
+        
+    e.preventDefault(); 
+    haveSpace(name);
+    validateEmail(email);
+    goodNumberOfSigh(message);
+        };
+
     
 
     return (

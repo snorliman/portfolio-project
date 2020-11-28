@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Nav from "../components/Nav";
 import {Link} from "react-router-dom";
 import {useState} from "react";
@@ -8,47 +8,44 @@ import {ReactComponent as Decoration} from "../assets/Decoration.svg";
 
 export default function Login() {
 
-    const [mailErrorLog, setMailErrorLog] = useState(false);
-    const [passwordErrorLog, setPasswordErrorLog] = useState(false);
+    const [mailErrorLog, setMailErrorLog] = useState(null);
+    const [passwordErrorLog, setPasswordErrorLog] = useState(null);
     const [mail, setMail] = useState('');
-    const [password, setPassword] = useState('')
+    const [password, setPassword] = useState('');
+
+    const validateEmail  = async (mail) => {
+        const re = /\S+@\S+\.\S+/;
+        if (re.test(mail)) {
+            setMailErrorLog(false)
+        } else {
+            setMailErrorLog(true)
+        };
+}
+const validatePassword = async (password) => {
+    if((password.length -1) < 6) {
+        setPasswordErrorLog(true);
+    } else {
+        setPasswordErrorLog(false);
+    } 
+   }
+   useEffect(() => {
+       if(mailErrorLog||passwordErrorLog) {
+            console.log("Nie udało się ", mailErrorLog, passwordErrorLog);
+        } else if ((mailErrorLog||passwordErrorLog) === false) {
+            console.log("UDAŁO SIĘ ", mailErrorLog, passwordErrorLog);
+        } else {
+            return null;
+        }
+   }, [passwordErrorLog, mailErrorLog]);
 
     const submitHandler = (e) => {
         
-        setMailErrorLog(false);
-        setPasswordErrorLog(false);
-        
         e.preventDefault();
 
-        const validateEmail = (mail) => {
-            const re = /\S+@\S+\.\S+/;
-            return re.test(mail);
-    }
-    const validatePassword = (password) => {
-        if((password.lenght -1) < 6) {
-            return true;
-        } else {
-            return false;
-        } 
-       }
-    const validationLog = (mail, password) => {
-        if (!validateEmail(mail)) {
-            setMailErrorLog(true);
-        }
-        if(!validatePassword(password)) {
-            setPasswordErrorLog(true);
-        }
-        if(mailErrorLog||passwordErrorLog) {
-            return;
-        } else {
-            console.log("UDAŁO SIĘ");
-            
-        }
-        
-    }; 
-    validationLog(mail, password)  
+        validateEmail(mail);
+        validatePassword(password); 
+    };  
 
-    }
 
     return (
         <div className="login">
@@ -63,12 +60,12 @@ export default function Login() {
                     <div className="login-form" >
                         <label>Email</label>
                         <div className="input-holder">
-                            <input id={mailErrorLog&&"error-line"} className="login-input" value={mail} onChange={(e)=> setMail(e.target.value)} type='email'></input>
+                            <input id={mailErrorLog ? "error-line":undefined} className="login-input" value={mail} onChange={(e)=> setMail(e.target.value)} type='email'></input>
                             {mailErrorLog && <p className="error-text-log">Podany email jest nieprawidłowy!</p>}
                         </div>
                         <label>Hasło</label>
                             <div className="input-holder">
-                                <input id={passwordErrorLog&&"error-line"} className="login-input" value={password} onChange={(e)=> setPassword(e.target.value)} type='password'></input>
+                                <input id={passwordErrorLog ? "error-line" : undefined} className="login-input" value={password} onChange={(e)=> setPassword(e.target.value)} type='password'></input>
                                 {passwordErrorLog && <p className="error-text-log">Podane hasło jest za krótkie!</p>}    
                             </div>
                             

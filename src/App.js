@@ -2,6 +2,7 @@ import React from "react"
 import './scss/App.scss';
 import HomePage from './pages/HomePage';
 import Login from './pages/Login';
+import LogOut from "./pages/LogOut";
 import Registration from './pages/Registration';
 import {Switch, Route} from "react-router-dom";
 
@@ -18,6 +19,9 @@ function App() {
      </Route>
      <Route path="/registration">
        <Registration />
+     </Route>
+     <Route path="/wylogowano">
+       <LogOut/>
      </Route>
     </Switch>
   );

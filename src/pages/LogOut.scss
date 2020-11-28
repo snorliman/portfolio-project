@@ -1,0 +1,44 @@
+@import "../scss/main.scss";
+
+.logout {
+  color: $ColorFive;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  .nav-holder {
+    height: 20vh;
+    margin: 20px 80px 0 0;
+  }
+  .logout-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      width: 350px;
+      text-align: center;
+    }
+    .decoration {
+      margin-bottom: 3rem;
+    }
+    .home-btn {
+      outline: none;
+      background: none;
+      border: 1px solid $ColorFive;
+      font-size: 1rem;
+      font-weight: 300;
+      display: inline-block;
+      color: inherit;
+      text-decoration: none;
+      height: 50px;
+      padding: 1rem 2rem;
+      &:hover {
+        color: $ColorThree;
+        border: 1px solid $ColorThree;
+      }
+    }
+  }
+}
