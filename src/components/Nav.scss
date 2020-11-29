@@ -11,11 +11,13 @@
     list-style: none;
     font-size: 1rem;
     margin-top: 40px;
-    li {
+    .nav-link {
       display: inline;
+      text-decoration: none;
+      color: inherit;
       padding-left: 4rem;
       cursor: pointer;
-      :hover {
+      &:hover {
         color: $ColorThree;
       }
     }

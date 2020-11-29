@@ -48,7 +48,7 @@ export default function HomeInfoSection(){
         </div>
 
         <div className="info-btn">
-         <Link className="big-link-item" to='/login'>ODDAJ RZECZY</Link>
+         <Link className="big-link-item" to='/logowanie'>ODDAJ RZECZY</Link>
         </div>
         </section>
 

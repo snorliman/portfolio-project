@@ -88,7 +88,7 @@ const validatePassword = async (password) => {
                         
                     </div>
                     <div className="reg-btn-contanier">
-                        <Link className="reg-btn reg-login" to="/login">Zaloguj się</Link>
+                        <Link className="reg-btn reg-login" to="/logowanie">Zaloguj się</Link>
                         <button type="submit" className="reg-btn">Załóż konto</button>    
                     </div>   
                 </form>  

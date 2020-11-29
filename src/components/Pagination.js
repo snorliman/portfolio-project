@@ -5,10 +5,9 @@ console.log(totalPosts, postsPerPage)
     const  pageNumber = [];
     for(let i = 1; i <= Math.ceil(totalPosts/postsPerPage); i++ ) {
         pageNumber.push(i);
-        console.log("to jest funkcja" + paginate, postsPerPage);
         
     }
-    console.log(pageNumber)
+
 
     return (
  

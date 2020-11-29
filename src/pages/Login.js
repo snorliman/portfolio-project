@@ -73,7 +73,7 @@ const validatePassword = async (password) => {
                         
                     </div>
                     <div className="login-btn-contanier">
-                        <Link className="login-btn login-registry" to="/registration">Załóż konto</Link>
+                        <Link className="login-btn login-registry" to="/rejestracja">Załóż konto</Link>
                         <button type="submit" className="login-btn">Zaloguj się</button>    
                     </div>   
                 </form>  
