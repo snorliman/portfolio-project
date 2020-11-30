@@ -15,24 +15,24 @@ export default function HomeContact() {
 
     
 
-    const validateEmail = (mail) => {
+    const validateEmail = (email) => {
         const re = /\S+@\S+\.\S+/;
-        if(re.test(mail)) {
+        if(re.test(email)) {
             setErrorEmail(false);
         } else {
             setErrorEmail(true);
         }
 }
-const haveSpace = (nam) => {
-        if (/\s/.test(nam)) {
+const haveSpace = (name) => {
+        if (/\s/.test(name)) {
             setErrorName(true);
         } else {
             setErrorName(false);
         }
 
 }     
-const goodNumberOfSigh = (mess) => {
-    if((mess.length - 1) < 120) {
+const goodNumberOfSigh = (message) => {
+    if((message.length - 1) < 120) {
         setErrorMessage(false);
     } else {
         setErrorMessage(true);
@@ -57,6 +57,9 @@ const goodNumberOfSigh = (mess) => {
             })
             .then((res) => console.log(res))
             .catch((err) => console.log(err));
+            setEmail("");
+            setMessage("");
+            setName("");
                 } else {
                     return null;
                 }

@@ -54,14 +54,14 @@ export default function HomeWhoGetHelp() {
                 <h2>Komu pomagamy?</h2>
                 <Decoration className="decor"/>
                 <div className="btn-container">
-                    <button onClick={fundationButtonHandler} className={active === "fundation" ? "active" : "" }>Fundacjom</button>
-                    <button onClick={organizationButtonHandler}className={active === "organization" ? "active" : "" }>Organizacjom pozarządowym</button>
-                    <button onClick={charrityButtonHandler}className={active === "charrity" ? "active" : "" }>Lokalnym zbiórkom</button>
+                    <button onClick={fundationButtonHandler} className={active === "fundation" ? "active organization-btn" : "organization-btn" }>Fundacjom</button>
+                    <button onClick={organizationButtonHandler}className={active === "organization" ? "active organization-btn" : "organization-btn" }>Organizacjom pozarządowym</button>
+                    <button onClick={charrityButtonHandler}className={active === "charrity" ? "active organization-btn" : "organization-btn" }>Lokalnym zbiórkom</button>
                 </div>
             </div>
-            {active === "fundation" && <Fundation postData={fundationData} posts={currentPost} postsPerPage={postsPerPage} paginate={paginate}/>}
-            {active === "organization" && <Fundation postData={organizationData} posts={currentPost} postsPerPage={postsPerPage} paginate={paginate} />}
-            {active === "charrity" && <Fundation postData={charrityData} posts={currentPost} postsPerPage={postsPerPage} paginate={paginate}/>}
+            {active === "fundation" && <Fundation postData={fundationData} posts={currentPost} postsPerPage={postsPerPage} paginate={paginate} currentPage={currentPage}/>}
+            {active === "organization" && <Fundation postData={organizationData} posts={currentPost} postsPerPage={postsPerPage} paginate={paginate} currentPage={currentPage} />}
+            {active === "charrity" && <Fundation postData={charrityData} posts={currentPost} postsPerPage={postsPerPage} paginate={paginate} currentPage={currentPage}/>}
     
         </section>
     );

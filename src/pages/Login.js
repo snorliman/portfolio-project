@@ -13,7 +13,7 @@ export default function Login() {
     const [mail, setMail] = useState('');
     const [password, setPassword] = useState('');
 
-    const validateEmail  = async (mail) => {
+    const validateEmail  = (mail) => {
         const re = /\S+@\S+\.\S+/;
         if (re.test(mail)) {
             setMailErrorLog(false)
@@ -21,18 +21,20 @@ export default function Login() {
             setMailErrorLog(true)
         };
 }
-const validatePassword = async (password) => {
-    if((password.length -1) < 6) {
-        setPasswordErrorLog(true);
-    } else {
+const validatePassword = (password) => {
+    if((password.length -1) >= 6) {
         setPasswordErrorLog(false);
+    } else {
+        setPasswordErrorLog(true);
     } 
    }
    useEffect(() => {
        if(mailErrorLog||passwordErrorLog) {
-            console.log("Nie udało się ", mailErrorLog, passwordErrorLog);
+            console.log("Nie udało się ");
         } else if ((mailErrorLog||passwordErrorLog) === false) {
-            console.log("UDAŁO SIĘ ", mailErrorLog, passwordErrorLog);
+            console.log("UDAŁO SIĘ ");
+            setMail("");
+            setPassword("");
         } else {
             return null;
         }
@@ -44,6 +46,7 @@ const validatePassword = async (password) => {
 
         validateEmail(mail);
         validatePassword(password); 
+        
     };  
 
 

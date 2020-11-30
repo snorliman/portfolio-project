@@ -2,8 +2,7 @@ import React from "react";
 import Pagination from "./Pagination";
 
 
-export default function Fundation({posts, postData,postsPerPage, paginate }) {
-  console.log(postsPerPage, postData.length)
+export default function Fundation({posts, postData,postsPerPage, paginate, currentPage }) {
     return (
         <>
         <div className="organization-container">
@@ -25,7 +24,7 @@ export default function Fundation({posts, postData,postsPerPage, paginate }) {
             ))}
         </div>
         </div>   
-        <Pagination postsPerPage={postsPerPage} totalPosts={postData.length}   paginate={paginate} />
+        <Pagination postsPerPage={postsPerPage} totalPosts={postData.length}   paginate={paginate} currentPage={currentPage} />
         </>
     )
 }

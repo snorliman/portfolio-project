@@ -25,17 +25,20 @@
       display: flex;
       justify-content: space-around;
       margin-bottom: 2rem;
-      .active {
-        border: 1px solid $ColorFive;
-        border-radius: none;
-      }
 
-      button {
+      .organization-btn {
         font-size: 1.2rem;
         background-color: white;
         outline: none;
         border: none;
         padding: 1.5rem 2rem;
+        &:hover {
+          border-color: $ColorThree;
+          color: $ColorThree;
+        }
+      }
+      .active {
+        border: 1px solid $ColorFive;
       }
     }
   }
@@ -92,19 +95,26 @@
 .btn {
   background-color: white;
   outline: none;
+  cursor: pointer;
   font-size: 1rem;
-
-  border: 1px solid $ColorFive;
+  border: none;
   margin: 0.1rem;
   padding: 0.8rem 0.6rem;
   color: inherit;
   text-decoration: none;
+  &:hover {
+    border: 1px solid $ColorThree;
+    color: $ColorThree;
+  }
+}
+button.active-btn {
+  border: 1px solid $ColorFive;
 }
 
 .paginate {
   display: flex;
   height: 10vh;
-  margin-top: 20px;
+  margin-top: 30px;
   justify-content: center;
   align-items: center;
   .paginate-list {

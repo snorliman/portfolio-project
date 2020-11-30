@@ -16,7 +16,7 @@ export default function Registration() {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState("");
 
-    const validateEmail  = async (mail) => {
+    const validateEmail  = (mail) => {
         const re = /\S+@\S+\.\S+/;
         if (re.test(mail)) {
             setMailErrorLog(false)
@@ -24,14 +24,14 @@ export default function Registration() {
             setMailErrorLog(true)
         };
 }
-const validatePassword = async (password) => {
+const validatePassword = (password) => {
     if((password.length -1) < 6) {
         setPasswordErrorLog(true);
     } else {
         setPasswordErrorLog(false);
     } 
    }
-   const validateConfirmPassword = async (confirmPassword) => {
+   const validateConfirmPassword = (confirmPassword) => {
     if(((confirmPassword.length -1) >= 6)&& confirmPassword === password) {
         setConfirmPassowrdLog(false);
     } else {
@@ -40,21 +40,24 @@ const validatePassword = async (password) => {
    }
     useEffect(() => {
          if(mailErrorLog||passwordErrorLog||confirmPasswordErrorLog) {
-            console.log("Nie udało się ", mailErrorLog, passwordErrorLog, confirmPasswordErrorLog);
+            console.log("Nie udało się ");
         } else if ((mailErrorLog||passwordErrorLog||confirmPasswordErrorLog) === false) {
-            console.log("UDAŁO SIĘ ", mailErrorLog, passwordErrorLog, confirmPasswordErrorLog);  
+            console.log("UDAŁO SIĘ ");  
+            setPassword("");
+            setMail("");
+            setConfirmPassword("");
         } else {
             return null;
         }
-    }, [mailErrorLog, passwordErrorLog, confirmPasswordErrorLog])
+    }, [mailErrorLog, passwordErrorLog, confirmPasswordErrorLog]);
+
     const submitHandler = (e) => {
         
         e.preventDefault();
 
         validateEmail(mail);
         validatePassword(password);
-        validateConfirmPassword(confirmPassword)
-    
+        validateConfirmPassword(confirmPassword);
         
     }; 
 

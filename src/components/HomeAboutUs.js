@@ -15,10 +15,10 @@ export default function HomeAboutUs(){
                         greens fava bean potato quandong celery. 
                         Bunya nuts black-eyed pea prairie turnip
                          leek lentil turnip greens parsnip.</p>
-                         <img src={signature}/>
+                         <img alt="signature" src={signature}/>
                 </div>
             </div>
-            <img className="about-us-picture" src={people}/>
+            <img alt="people" className="about-us-picture" src={people}/>
         </section>
     );
 }

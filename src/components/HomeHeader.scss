@@ -49,5 +49,10 @@
     border: 1px solid $ColorFive;
     color: inherit;
     text-decoration: inherit;
+    cursor: pointer;
+    &:hover {
+      border-color: $ColorThree;
+      color: $ColorThree;
+    }
   }
 }

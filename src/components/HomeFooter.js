@@ -11,8 +11,8 @@ export default function HomeFooter() {
             </div>
             
             <div className="icon-container">
-                <img src={fbIcon}/>
-                <img src={igIcon}/>
+                <img alt="facebook" src={fbIcon}/>
+                <img alt="instagram" src={igIcon}/>
             </div>
         </div>
     );
